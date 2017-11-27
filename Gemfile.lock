@@ -84,6 +84,9 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (0.1.42)
+      devise (> 3.5.2, <= 4.3)
+      rails (< 6)
     equalizer (0.0.11)
     erubi (1.7.0)
     execjs (2.7.0)
@@ -233,6 +236,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  devise_token_auth
   grape
   grape-active_model_serializers
   jbuilder (~> 2.5)

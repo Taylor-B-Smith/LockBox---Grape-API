@@ -42,7 +42,7 @@ gem 'grape'
 gem 'grape-active_model_serializers'
 # grape API authentication
 gem 'omniauth'
-#gem 'devise_token_auth'
+gem 'devise_token_auth'
 
 
 # CORS
