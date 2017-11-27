@@ -17,11 +17,11 @@ module API
         # TODO shouldn't use post for this. find a way to pass params with get
         post "/validate" do
           @user = User.find_by_email params[:email]
-          retval = false
+          retval = "false"
           if @user != nil
             if @user.valid_password? params[:password]
               if @user.devices.include?( Device.find_by_mac params[:mac] )
-                retval = true
+                retval = "true"
               end
             end
           end

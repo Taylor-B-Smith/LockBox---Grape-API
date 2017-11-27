@@ -7,7 +7,7 @@ module API
         prefix "api"
         version "v1", using: :path
         default_format :json
-        format :json
+        format :text
         formatter :json,
                   Grape::Formatter::ActiveModelSerializers
 
