@@ -1,0 +1,20 @@
+<h1>PAGE TOP</h1>
+show user
+<%= @user.email %>
+
+<%= @user.devices.each do |d| %>
+    <%= d.mac %>
+<% end %>
+
+<h2>Add a device:</h2>
+<%= form_for([@user, @user.devices.build]) do |f| %>
+    <div class="field">
+      <%= f.label :mac %><br />
+      <%= f.text_field :mac %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<h1>PAGE BOT</h1>

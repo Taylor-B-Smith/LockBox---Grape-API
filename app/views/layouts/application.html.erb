@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LockBox</title>
+    <%= csrf_meta_tags %>
+
+
+  </head>
+
+  <body>
+    <h1>APP TOP</h1>
+
+
+    <% if signed_in? %>
+      <%= link_to profile_path, :method => :get do %>
+          My Profile |
+      <% end %>
+      <%= link_to destroy_user_session_path, :method => :delete do %>
+        Sign Out
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path, :method => :get do %>
+        Sign In
+      <% end %>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+    <%= yield %>
+    <h1>APP BOT</h1>
+  </body>
+</html>
