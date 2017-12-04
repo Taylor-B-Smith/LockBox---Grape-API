@@ -68,4 +68,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby, :ruby]
 
 #this gem is needed for heroku to install yarn, etc
-gem 'webpacker'
+#gem 'webpacker'
