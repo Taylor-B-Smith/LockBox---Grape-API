@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     post "sessions/user", :to => "users/sessions#create", via: [:post]
   end
 
-  get "profile", to: "user#show"
+  get "account", to: "user#show"
 
   resources :sessions
   resources :user do

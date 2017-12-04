@@ -3,31 +3,51 @@
   <head>
     <title>LockBox</title>
     <%= csrf_meta_tags %>
-
-
+    <meta name="author" content="Taylor Smith" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", media: "all" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" %>
+    <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
+    <%= favicon_link_tag "/assets/favicon.ico" %>
+    <%= stylesheet_link_tag "/assets/styles.css" %>
   </head>
 
   <body>
-    <h1>APP TOP</h1>
 
-
-    <% if signed_in? %>
-      <%= link_to profile_path, :method => :get do %>
-          My Profile |
-      <% end %>
-      <%= link_to destroy_user_session_path, :method => :delete do %>
-        Sign Out
-      <% end %>
-    <% else %>
-      <%= link_to new_user_session_path, :method => :get do %>
-        Sign In
-      <% end %>
-    <% end %>
+    <nav class="navbar">
+      <div class="container-fluid container" >
+        <div class="row">
+          <%= image_tag "/assets/cloudlock.jpg", class: "logo img-responsive col-sm-4 col-md-2" %>
+          <h1 class="title col-sm-4 col-md-4">LockBox</h1>
+          <div class="links col-sm-6 col-md-6">
+            <% if signed_in? %>
+                <%= link_to account_path, :method => :get do %>
+                    My Account
+                <% end %>
+                |
+                <%= link_to destroy_user_session_path, :method => :delete do %>
+                    Sign Out
+                <% end %>
+            <% else %>
+                <%= link_to new_user_session_path, :method => :get do %>
+                    Sign In
+                <% end %>
+                |
+                <%= link_to new_user_registration_url, :method => :get do %>
+                    Sign Up
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <div class="pageWrapper">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
-    <h1>APP BOT</h1>
+
   </body>
 </html>

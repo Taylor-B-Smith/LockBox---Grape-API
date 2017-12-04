@@ -1,0 +1,55 @@
+
+
+.navbar {
+    height: 101px;
+    background-color: #2d4acc;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+}
+
+.logo {
+    float:left;
+    height: 100px;
+    width: 100px;
+    margin:0px;
+    padding:0px;
+}
+
+.title {
+    float:left;
+    height: 100px;
+    line-height: 100px;
+    margin: 0;
+    font-size: 3em;
+}
+
+.links {
+    float:right;
+    font-size: 2em;
+    height: 100px;
+    line-height: 100px;
+    text-align: right;
+}
+
+p.alert {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.pageWrapper {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 720px) {
+    .title {
+        font-size: 2.5em;
+    }
+    .links {
+        font-size: 1em;
+        padding-right: 10px;
+    }
+}

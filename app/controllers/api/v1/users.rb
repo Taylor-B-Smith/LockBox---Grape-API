@@ -12,22 +12,36 @@ module API
         params do
           requires :email, type: String, desc: 'email'
           requires :password, type: String, desc: 'password'
-          requires :mac, type: String, desc: 'MAC address'
+
+          #requires :mac, type: String, desc: 'MAC address'
         end
-        # TODO shouldn't use post for this. find a way to pass params with get
+        # TODO shouldn't use POST for this. find a way to pass params with GET
+        # do this via query string vars
+
+        # validate user credentials and account-device association
         post "/validate" do
-          @user = User.find_by_email params[:email]
-          retval = false
-          if @user != nil
-            if @user.valid_password? params[:password]
+          params do
+            requires :mac, type: String, desc: 'MAC address'
+          end
+          if validateUser
               if @user.devices.include?( Device.find_by_mac params[:mac] )
                 retval = true
               end
-            end
           end
           retval
         end
 
+        post "/devices" do
+          if validateUser
+            @user.devices
+          end
+        end
+
+        post "/user" do
+          if validateUser
+            @user
+          end
+        end
 
       end
 

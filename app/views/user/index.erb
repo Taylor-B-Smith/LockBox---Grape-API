@@ -1,7 +1,23 @@
-<h1>PAGE TOP</h1>
-index
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-xs-12">
+      <h3>Welcome to LockBox!</h3>
+      <p>LockBox is a platform for creating secure, web-enabled Arduino projects and mobile applications.</p>
+      <% if not signed_in? %>
+          <p>
+            <%= link_to new_user_registration_url, method: :get do %>
+                Create an account
+            <% end %>
+            or
+            <%= link_to new_user_session_path, method: :get do %>
+                login here!
+            <% end %>
+          </p>
+      <% end %>
+    </div>
+  </div>
 
-<%= @users.each do |u|%>
-    <%= u.email %>
-<% end %>
-<h1>PAGE BOT</h1>
+
+
+</div>
+

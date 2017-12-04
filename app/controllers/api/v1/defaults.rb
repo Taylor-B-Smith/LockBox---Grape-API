@@ -19,6 +19,19 @@ module API
           def logger
             Rails.logger
           end
+
+
+          def validateUser
+            retval = false
+            @user = User.find_by_email params[:email]
+            if @user != nil
+              if @user.valid_password? params[:password]
+                retval = true
+              end
+            end
+            return retval
+          end
+
         end
 
         rescue_from ActiveRecord::RecordNotFound do |e|
