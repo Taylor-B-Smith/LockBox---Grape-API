@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.11', platforms: [:ruby]
 
-# Grape is used for the API
+# Grape runs the API
 gem 'grape'
 gem 'grape-active_model_serializers'
 # grape API authentication
@@ -45,7 +45,7 @@ gem 'omniauth'
 gem 'devise_token_auth'
 
 
-# CORS
+# CORS middleware helps Rails and Grape to run side-by-side
 gem 'rack-cors', :require => 'rack/cors'
 
 # Use Capistrano for deployment

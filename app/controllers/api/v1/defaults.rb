@@ -12,6 +12,8 @@ module API
                   Grape::Formatter::ActiveModelSerializers
 
         helpers do
+
+          # All params are currently permitted, and no missing params will be added to the request.
           def permitted_params
             @permitted_params ||= declared(params, include_missing: false)
           end
@@ -21,6 +23,7 @@ module API
           end
 
 
+          # Authenticate user credentials. Should rename method as "authenticateUser"
           def validateUser
             retval = false
             @user = User.find_by_email params[:email]
@@ -37,7 +40,6 @@ module API
         rescue_from ActiveRecord::RecordNotFound do |e|
           error_response(message: e.message, status: 404)
         end
-
 
         rescue_from ActiveRecord::RecordInvalid do |e|
           error_response(message: e.message, status: 422)
